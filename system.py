@@ -1,4 +1,6 @@
 from lexer import *
+from parser import *
+
 
 if __name__ == "__main__":
 	import sys
@@ -9,4 +11,9 @@ if __name__ == "__main__":
 
 	l = Lexer()
 	l.lexer(argv[1])
-	l.dump()
+	token = l.token()
+
+	p = Parser()
+	p.parse(token)
+
+	p.dump()

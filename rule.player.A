@@ -1,5 +1,5 @@
 # Rule
-S should go (1,0,0,0).
+S should go P.
 S should not attack.
-if S in (3,4), S should stop.
+
 

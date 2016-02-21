@@ -64,17 +64,20 @@ class Lexer:
 					self.tokens.append(["ID",buffer])
 					buffer = "";
 					status = 0;
+
 			elif status == 4:
 				if '\n' == c:
 					status = 0
 
-			elif status == 0:
+			if status == 0:
 				if self.__isLetter(c):
 					buffer += c
 					status = 3
+					i-= 1
 				elif self.__isAlphanumeric(c):
 					buffer += c
 					status = 2
+					i-= 1
 				else:
 					if c in { ' ', '\t', '\n', '\r'}:
 						pass
@@ -135,18 +138,8 @@ class Lexer:
 		for i in self.tokens:
 			print(i)
 
-if __name__ == "__main__":
-	import sys
-	argv = sys.argv
-	if len(argv) <= 1:
-		print("Pls rule file")
-		quit()
-
-	l = Lexer()
-	l.lexer(argv[1])
-	l.dump()
-
-
+	def  token(self):
+		return self.tokens
 
 
 
