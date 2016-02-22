@@ -17,3 +17,18 @@ if __name__ == "__main__":
 	p.parse(token)
 
 	p.dump()
+
+	pAx, pAy = 1,3
+	pBx, pBy = 3,5
+
+	for i in range(8):
+		for j in range(8):
+			print("|", end="")
+			if (pAx, pAy) == (j,i):
+				print("い", end="")
+			elif (pBx, pBy) == (j,i):
+				print("あ", end="")
+			else:
+				print("　", end="")
+
+		print("|")
